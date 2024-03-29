@@ -1,0 +1,27 @@
+-- DDL(Data Definition Language) : 데이터베이스 데이터를 보관하고 관리하기 위해
+-- 제공되는 여러 객체의 생성(create), 변경(alter), 삭제(drop) 관련 기능을 수행
+-- DDL은 commit, rollback이 없음
+CREATE TABLE EMP_DDL (
+	EMPNO  NUMBER(4),
+	ENAME  VARCHAR2(10), -- VARCHAR2는 10자리 이하의 가변 크기를 할당
+	JOB    VARCHAR2(9),
+	MGR    NUMBER(4),
+	HIREDATE DATE,
+	SAL    NUMBER(7, 2), -- 총 7자라의 숫자 중 소수점 이하가 2자리, 정수부 5자리
+	COMM   NUMBER(7, 2),
+	DEPTNO NUMBER(2)
+);
+
+SELECT * FROM EMP_DDL;
+DESC EMP_DDL;
+
+-- 기존 테이블을 복사해서 새 테이블 만들기
+CREATE TABLE DEPT_DDL
+	AS SELECT * FROM DEPT;
+
+SELECT * FROM DEPT_DDL;
+
+CREATE TABLE EMP_DDL_30
+	AS SELECT * FROM EMP
+	WHERE DEPTNO = 30;
+SELECT * FROM EMP_DDL_30;
